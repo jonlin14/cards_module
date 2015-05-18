@@ -1,0 +1,42 @@
+<?php
+function cards_menu() {
+
+    $items = array();
+    $items['cards'] = array(
+    'title' => 'Cards',
+    'page callback' => 'card_function',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM
+    );
+
+    $names = ['John', 'Connor', 'Sarah', 'Get to the choppppa'];
+
+    foreach($names as $value){
+
+        $items['cards/' . $value] = array(
+        'title' => $value,
+        'page callback' => 'card_function',
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM
+        );
+
+    };
+    return $items;
+}
+function card_function() {
+
+    $result ='<br> Greetings: '. arg(1);
+    return $result;
+}
+//
+// function card_function_john() {
+//     return '<p>Hello John!</p>';
+// }
+//
+// function card_function_bacon() {
+//     return '<p>Hello Bacon!</p>';
+// }
+//
+// function card_function_wings() {
+//     return '<p>Hello Wings!</p>';
+// }
